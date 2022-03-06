@@ -22,7 +22,7 @@ const downloadImage = async (url: string, filename: string) => {
 
 const downloadAudio = async (url: string, filename: string) => {
   const audioPath = path.resolve(rootPath, filename);
-  const result = execSync(`youtube-dl "${url}" -o "${audioPath}"`).toString();
+  const result = execSync(`youtube-dl "${url}" -o "${audioPath}" --ignore-config`).toString();
   console.log(result);
 };
 
