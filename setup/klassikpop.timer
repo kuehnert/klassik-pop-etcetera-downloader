@@ -1,0 +1,12 @@
+# /etc/systemd/system/klassikpop.timer
+# sudo syscontrol enable klassikpop.timer
+# sudo syscontrol start klassikpop.timer
+[Unit]
+Description=Run Klassik-Pop-Etc-Downloader Every Sunday
+
+[Timer]
+Unit=klassikpop.service
+OnCalendar=Mon *-*-* 08:00:00
+
+[Install]
+WantedBy=timers.target

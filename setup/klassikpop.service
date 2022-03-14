@@ -1,0 +1,22 @@
+# /etc/systemd/system/klassikpop.service
+# sudo syscontrol enable klassikpop
+# sudo syscontrol start klassikpop
+[Unit]
+Description=NodeJS 
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=30
+ExecStart=/home/mk/GITProjects/klassik-pop-etcetera-downloader/current/bin/start.sh
+WorkingDirectory=/home/mk/GITProjects/klassik-pop-etcetera-downloader
+User=mk
+KillSignal=SIGQUIT
+StandardOutput=syslog
+StandardError=syslog
+#Change this to find app logs in /var/log/syslog
+SyslogIdentifier=klassikpop
+
+[Install]
+WantedBy=multi-user.target
